@@ -117,6 +117,8 @@ public class PlayerController : CharacterBase
     private void SpawnBullet()
     {
         GameObject g = ObjectPool.Instance.GetObject(bulletPrefab);
+        if (g == null)
+            return;
         g.transform.position = shootPoint.position;
 
         float dir = character_dir;

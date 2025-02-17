@@ -69,7 +69,7 @@ public class SceneController : Singleton<SceneController>
         GameEvent.OnCompleteLevel?.Invoke();
         yield return new WaitForSeconds(1.5f);
         gateEndAnim.gameObject.SetActive(true);
-        gateEndAnim.SetTrigger("Gate_appear");
+        //gateEndAnim.SetTrigger("Gate_appear");
         GameEvent.OnDisplayStartGate?.Invoke();
     }
 }
