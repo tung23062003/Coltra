@@ -25,15 +25,6 @@ public class BulletBase : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
 
     protected void HideBullet()
     {
@@ -55,13 +46,7 @@ public class BulletBase : MonoBehaviour
     // Xu ly VFX va va cham
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        //GameObject g = ObjectPooling.Instance.getVFX();
-        //g.transform.position = this.transform.position;
-        //g.SetActive(true);
-        //this.gameObject.SetActive(false);
-
-        //if (collision.CompareTag("Wall"))
-        //    Destroy(collision.gameObject);
+        
     }
 
     public void SetBulletColor(CharacterColor color)
@@ -73,4 +58,5 @@ public class BulletBase : MonoBehaviour
     {
         _renderer.color = ColorData.GetColor(bulletColor);
     }
+
 }

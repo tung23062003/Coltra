@@ -177,7 +177,11 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(GameConstants.playerBullet))
         {
-            if (collision.GetComponent<BulletBase>().bulletColor == bulletColor) DecreaseHealth();
+            if (collision.GetComponent<BulletBase>().bulletColor == bulletColor) {
+                DecreaseHealth();
+                Vector2 hitPoint = collision.ClosestPoint(transform.position);
+                VFXManager.Instance.PlayVFX("Boom", hitPoint, Quaternion.identity);
+            } 
 
             if (IsDead())
             {

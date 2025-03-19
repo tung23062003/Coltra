@@ -22,6 +22,8 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private GameObject bulletObj;
     [SerializeField] private GameObject bossImgObj;
 
+    public bool isWin;
+
     protected override void Awake()
     {
         GameEvent.OnEnemyKill += EnemyKilled;
@@ -119,7 +121,7 @@ public class LevelManager : Singleton<LevelManager>
         GameEvent.OnCompleteObjective?.Invoke();
         //SceneController.Instance.NextLevel();
         Destroy(monsterObj);
-        Destroy(bulletObj);
+        //Destroy(bulletObj);
     }
 
 }

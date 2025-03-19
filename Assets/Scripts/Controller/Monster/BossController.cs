@@ -106,7 +106,12 @@ public class BossController : MonsterController
     {
         if (collision.gameObject.CompareTag(GameConstants.playerBullet))
         {
-            if (collision.GetComponent<BulletBase>().bulletColor == BossColor) DecreaseHealth();
+            if (collision.GetComponent<BulletBase>().bulletColor == BossColor)
+            {
+                DecreaseHealth();
+                Vector2 hitPoint = collision.ClosestPoint(transform.position);
+                VFXManager.Instance.PlayVFX("Boom", hitPoint, Quaternion.identity);
+            }
             if (IsDead())
             {
                 IngameController.Instance.panelBoss.SetActive(false);
